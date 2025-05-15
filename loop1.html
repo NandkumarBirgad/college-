@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Two Arrays</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 100px;
+            background-color: #8573d8;
+        }
+        h2 {
+            color: #333;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            border-color: crimson;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            border-color: darkred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            
+        }
+        button:hover {
+            background-color: #218838;
+           
+           
+           
+        }
+        p {
+            font-size: 18px;
+            color: #050505;
+        }
+    </style>
+</head>
+<body>
+    <h2>Sum of Two Arrays</h2>
+    <p>Enter arrays:</p>
+    <input type="text" id="array1" placeholder="Array 1">
+    <input type="text" id="array2" placeholder="Array 2">
+    <button onclick="sumArrays()">Calculate Sum</button>
+    <p id="result"></p>
+
+    <script>
+        function sumArrays() {
+            let arr1 = document.getElementById("array1").value.split(",").map(Number);
+            let arr2 = document.getElementById("array2").value.split(",").map(Number);
+            let resultText = document.getElementById("result");
+
+            if (arr1.length !== arr2.length) {
+                resultText.innerText = "Arrays must have the same length!";
+                return;
+            }
+
+            let sumArray = arr1.map((num, index) => num + arr2[index]);
+
+            resultText.innerText = "Resulting Array: [" + sumArray.join(", ") + "]";
+        }
+    </script>
+</body>
+</html>
